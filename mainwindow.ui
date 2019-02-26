@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>161</width>
+    <height>60</height>
+   </rect>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="open_btn">
+      <property name="text">
+       <string>Open Image</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.amin-ahmadi.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.amin-ahmadi.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionAbout_Me">
+   <property name="text">
+    <string>About Me</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionAbout_OpenCV">
+   <property name="text">
+    <string>About OpenCV</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/open_tn.png</normaloff>:/icons/open_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="action_Capture">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/camera_tn.png</normaloff>:/icons/camera_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Capture</string>
+   </property>
+  </action>
+  <action name="actionCanny">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/canny_tn.png</normaloff>:/icons/canny_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/eraser_tn.png</normaloff>:/icons/eraser_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+  </action>
+  <action name="actionScale">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/scale_tn.png</normaloff>:/icons/scale_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scale</string>
+   </property>
+  </action>
+  <action name="actionRotate">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/rotate_tn.png</normaloff>:/icons/rotate_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rotate</string>
+   </property>
+  </action>
+  <action name="actionFourier_DFT">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/fourier_tn.png</normaloff>:/icons/fourier_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fourier (DFT)</string>
+   </property>
+  </action>
+  <action name="action0_5_X">
+   <property name="text">
+    <string>0.5 X</string>
+   </property>
+  </action>
+  <action name="action2_X">
+   <property name="text">
+    <string>2 X</string>
+   </property>
+  </action>
+  <action name="action90_CLW">
+   <property name="text">
+    <string>90° CLW</string>
+   </property>
+  </action>
+  <action name="action90_CCLW">
+   <property name="text">
+    <string>90° CCLW</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionInverse_Fourier_Inv_DFT">
+   <property name="text">
+    <string>Inverse Fourier (Inv. DFT)</string>
+   </property>
+  </action>
+  <action name="actionMiddle_1_4">
+   <property name="text">
+    <string>Middle 1/4</string>
+   </property>
+  </action>
+  <action name="actionOpen_Custom_Mask">
+   <property name="text">
+    <string>Open Custom Mask</string>
+   </property>
+  </action>
+  <action name="actionPercentage_From_The_Middle">
+   <property name="text">
+    <string>Percentage From The Middle</string>
+   </property>
+  </action>
+  <action name="actionCapture_Custom_Mask">
+   <property name="text">
+    <string>Capture Custom Mask</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/save_tn.png</normaloff>:/icons/save_tn.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="actionConvert">
+   <property name="text">
+    <string>Convert</string>
+   </property>
+  </action>
+  <action name="actionHow_to_use">
+   <property name="text">
+    <string>How to use</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
