@@ -49,6 +49,8 @@ private:
     QVideoSurfaceFormat _format;
     cv::VideoCapture m_cap;
     cv::Mat m_grab;
+
+    bool m_is_grabbing;
 };
 
 #endif // DESKTOPVIDEOPRODUCER_H

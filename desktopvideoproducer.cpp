@@ -117,7 +117,8 @@ void DesktopVideoProducer::scan()
     if( !_surface )
         return;
 
-    QImage  img = m_result->image().convertToFormat(QImage::Format_ARGB32);
+    QImage img = m_result->image().convertToFormat(QImage::Format_ARGB32);
+    m_is_grabbing = false;
     // imshow("Grab", m_grab);
     cv::Mat input(img.height(), img.width(),
                   CV_8UC4,
@@ -125,7 +126,16 @@ void DesktopVideoProducer::scan()
                   static_cast<size_t>(img.bytesPerLine())
                   );
 
-    Canny(input, input, 100, 200);
+    //Canny(input, input, 100, 200);
+    //equalizeHist(input, input);
+    cvtColor(input, input, COLOR_RGB2BGR);
+    Mat norm_color = input.clone();
+    cvtColor(norm_color, norm_color, COLOR_BGR2RGB);
+
+    float alpha = 0.5;
+    float beta = 1 - alpha;
+    addWeighted(input, alpha, norm_color, beta, 0, input);
+
 
     QImage processed = cvMatToQImage(input).convertToFormat(QImage::Format::Format_RGB32);
     if (processed.isNull()) {
@@ -164,9 +174,13 @@ void DesktopVideoProducer::setCamera(QQuickItem* ptr)
 
 void DesktopVideoProducer::recognize()
 {
+    if (m_camera == nullptr || m_is_grabbing) {
+        return;
+    }
     m_result = m_camera->grabToImage();
     connect(m_result.data(), &QQuickItemGrabResult::ready,
             this, &DesktopVideoProducer::scan);
+    m_is_grabbing = true;
 }
 
 void DesktopVideoProducer::timerEvent( QTimerEvent* )

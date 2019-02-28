@@ -25,7 +25,9 @@ ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
 # Change this paths to your own OpenCV  for Android installation
 INCLUDEPATH += /home/rattus/opencv/opencv-android-sdk/sdk/native/jni/include
 
-#LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs
+!android {
+    LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs
+}
 
 android {
     # Change the last part (armeabi-v7a) according to your build

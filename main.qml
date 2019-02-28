@@ -67,7 +67,7 @@ ApplicationWindow {
 
     Timer {
         id: main_loop
-        interval: 1000; running: true; repeat: true;
+        interval: 25; running: true; repeat: true;
         onTriggered:
         {
             videoHandler.recognize();
