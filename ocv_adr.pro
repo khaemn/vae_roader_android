@@ -1,4 +1,4 @@
-QT += core gui quick multimedia
+QT += core quick multimedia widgets
 CONFIG += c++14
 
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -25,16 +25,25 @@ ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
 # Change this paths to your own OpenCV  for Android installation
 INCLUDEPATH += /home/rattus/opencv/opencv-android-sdk/sdk/native/jni/include
 
-!android {
+linux:!android {
     LIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs
+}
+
+INCLUDEPATH += /usr/local/include/
+
+CRYSTAX_NDK_PATH = /home/rattus/android-ndk/crystax-ndk-10.3.2
+
+android {
+    ANDROID_EXTRA_LIBS += $$CRYSTAX_NDK_PATH/sources/crystax/libs/armeabi-v7a/libcrystax.so
+    LIBS += -L"$$CRYSTAX_NDK_PATH/sources/crystax/libs/armeabi-v7a/" \
+        -lcrystax
+    DEFINES += EIGEN_MAX_CPP_VER=11
 }
 
 android {
     # Change the last part (armeabi-v7a) according to your build
     OPENCV3RDPARTYLIBS = /home/rattus/opencv/opencv-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a
     OPENCVNATIVELIBS = /home/rattus/opencv/opencv-android-sdk/sdk/native/libs/armeabi-v7a
-
-    #INCLUDEPATH += /usr/local/include/
 
     LIBS += $$OPENCV3RDPARTYLIBS/liblibtiff.a \
         $$OPENCV3RDPARTYLIBS/liblibjpeg.a \
@@ -66,6 +75,12 @@ android {
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+# HEADERS +=
+
+contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
+    ANDROID_EXTRA_LIBS =
+}
 
 HEADERS += \
     desktopvideoproducer.h

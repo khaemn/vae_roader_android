@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>micro_model_yolike_roader.json</file>
     </qresource>
 </RCC>

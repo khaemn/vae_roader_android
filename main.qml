@@ -4,13 +4,10 @@ import QtMultimedia 5.8
 
 import DesktopVideoProducer 0.1
 
-ApplicationWindow {
+Item {
     visible: true
 
-    width: 1000
-    height: 1000
-
-    title: qsTr("Scroll")
+    anchors.fill: parent
 
     Rectangle {
         anchors.fill: parent
@@ -44,7 +41,11 @@ ApplicationWindow {
     Item {
         id: grabSurface
 
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.margins: 10
+        width: parent.width / 2
 
         VideoOutput {
             id: videoIn
@@ -52,22 +53,22 @@ ApplicationWindow {
             anchors.fill: parent
             focus : visible // to receive focus and capture key events when visible
         }
-
-        visible: false
     }
 
 
     VideoOutput {
         id: videoOut
-        anchors.fill: parent
-
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: parent.width / 2
+        anchors.margins: 10
         source: videoHandler
-        anchors.rightMargin: 100
     }
 
     Timer {
         id: main_loop
-        interval: 25; running: true; repeat: true;
+        interval: 100; running: true; repeat: true;
         onTriggered:
         {
             videoHandler.recognize();

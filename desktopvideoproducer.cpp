@@ -90,13 +90,13 @@ void DesktopVideoProducer::registerQmlType()
 DesktopVideoProducer::DesktopVideoProducer( QObject *parent )
     : QObject( parent ), _surface( 0 )
 {
-    m_cap.open(0);
+    //m_cap.open(0);
     startTimer( 1000 / 15 ); //15 fps
 }
 
 DesktopVideoProducer::~DesktopVideoProducer()
 {
-    m_cap.release();
+    //m_cap.release();
     closeSurface();
 }
 
